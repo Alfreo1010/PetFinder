@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="py-4"></div>
+<div class="row justify-content-center">
+    <h1 class="display-3 pt-3 text-center">Notificaciones</h1>
+    <div class="list-group border border-3 border-primary shadow-lg col-md-9 mb-3">
+    </div>
+    <div class="col-md-9">            
+        <div class="list-group border border-3 border-primary shadow-lg">
+            {% for notify in notifys %}
+                <button type="button" class="list-group-item list-group-item-action">Se ingresó a la página de {{ notify.mascota.name }} desde {{ notify.calle }}, {{ notify.ciudad }}, {{ notify.estado }}, {{ notify.pais }} el {{ notify.hora }}</button>
+            {% endfor %}
+        
+        </div>
+    </div>
+</div>
+<div class="py-5"></div>
+<div class="py-5"></div>
+<div class="py-5"></div>
+<div class="py-5"></div>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main><div class="pt-3"></div>
+    <div class="container">
+        <br>
+        <br>
+        <h1 class="my-4 text-center">Mis órdenes de compra</h1>
+        {% for orden, direccion, items in ordenes_y_direcciones %}
+        <div class="box-element">
+            <div class="row store-row">
+                <div class="col-12 text-center">
+                    <h3>Orden ID: {{ orden.id }}</h3>
+                </div>
+            </div>
+            <div class="row store-row">
+                <div class="col-6">
+                    <div class="order-container">
+                        <ul class="list-group">
+                            <li class="list-group-item store-list-group-item">
+                                <p>Fecha de la orden: {{ orden.date_ordered }}</p>
+                                <p>Completada: {{ orden.complete }}</p>
+                                <p>ID de la transacción: {{ orden.transaction_id }}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="shipping-container">
+                        <ul class="list-group">
+                            {% if direccion %}
+                            <li class="list-group-item store-list-group-item">
+                                <h5>Dirección de envío: {{ direccion.address }}</h5>
+                                <p>Ciudad: {{ direccion.city }}</p>
+                                <p>Estado: {{ direccion.state }}</p>
+                                <p>Código postal: {{ direccion.zipcode }}</p>
+                            </li>
+                            {% else %}
+                            <li class="list-group-item store-list-group-item">No hay dirección de envío asociada con esta orden.</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+				<div class="cart-row">
+					<div style="flex:2"></div>
+					<div style="flex:2"><strong>Item</strong></div>
+					<div style="flex:1"><strong>Precio</strong></div>
+					<div style="flex:1"><strong>Cantidad</strong></div>
+					<div style="flex:1"><strong>Total</strong></div>
+				</div>
+            <div class="row store-row">
+                <div class="col-12">
+                    <div class="order-summary">
+                        {% for item in items %}
+                        <div class="cart-row">
+                            <div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}"></div>
+                            <div style="flex:2"><p>{{item.product.name}}</p></div>
+                            <div style="flex:1"><p>${{item.product.price|floatformat:2}}</p></div>
+                            <div style="flex:1"><p>{{item.quantity}}</p></div>
+                            <div style="flex:1"><p>${{item.get_total|floatformat:2}}</p></div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="row store-row">
+                <div class="col-6">
+                    <h5>Total de ítems en la orden: {{ orden.get_cart_items }}</h5>
+                </div>
+                <div class="col-6">
+                    <h5>Total de la orden: ${{ orden.get_cart_total|floatformat:2 }}</h5>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <li class="list-group-item store-list-group-item">No hay órdenes de compra.</li>
+        {% endfor %}
+    </div>
+    <div class="pt-5"></div>
+<div class="pt-5"></div>
+</main>
+
+{% endblock %}
+

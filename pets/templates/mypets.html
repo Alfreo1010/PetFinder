@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+
+    <div class="row py-5">
+        <h1 class="display-1 pt-3 pb-5 text-center">Mis mascotas</h1>
+        <div class="sbody">
+            <div class="sbox">
+                {% for pet in pets %}
+                <div class="scard mb-5 hover shadow-lg rounded-4">
+                    <div class="simgBx rounded-5">
+                        <img src="{{pet.photo.url}}" class="simg border border-secondary border-5 rounded-3" alt="images">
+                        </div>
+                    <div class="sdetails">
+                        <h1 class="sh2">{{pet.name}}</h2>
+                        <footer class="card-footer text-muted">
+                            <div class="btn-group mb-3">
+                                <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'pets:pet_detail' pet.id %}">Ver más</a>
+                                <a type="button" class="btn btn-sm btn-outline-primary" href="{% url 'pets:pet_edit' pet.id %}">Editar</a>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="row text-center">
+                    <h1 class="display-6 py-3 text-center">No hay nada aún, ¿Por qué no prueba con el botón de la esquina?</h1>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <form action="{% url 'pets:create_pets' %}" method="POST" class="col-2 p-5 fixed-bottom">
+            {% csrf_token %}
+            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="top" data-bs-content="Crea una nueva mascota">
+            <button class="wiggle btn btn-lg btn-secondary circle-button">
+                <h1 class="display-5 pt-1"><i class="fa-solid fa-paw"></i></h1>
+            </button>
+        </form>
+    </div>
+</main>
+<div class="py-5"></div>
+<div class="py-5"></div>
+<div class="py-5"></div>
+{% endblock %}

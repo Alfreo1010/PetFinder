@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="container-fluid">
+    <div class="row pt-3"></div>
+    <div class="row justify-content-center">
+        <div class="col-md-8 py-5">
+            <div class="card card-body rounded-top-5 bg-dark text-light">
+                <form method="POST" enctype="multipart/form-data" class="card card-body border border-primary border-5 rounded-5 bg-dark">
+
+                    <h1 class="display-3 text-center">Edita la información</h1>
+
+                    {{error}}
+
+                    {% csrf_token %}
+                    {{form.as_p}}
+
+                    <button class="btn btn-success">
+                        Editar
+                    </button>
+
+                </form>
+            </div>  
+            <div class="card card-body rounded-bottom-5 bg-dark text-light">
+                <form action="{% url 'pets:pet_delete' pet.id %}" method="POST" class="card card-body border border-secondary border-5 bg-dark rounded-5">
+                    {% csrf_token %}
+                    <button class="btn btn-danger">
+                        Eliminar mascota
+                    </button>
+                    <h5>Si realizas esta acción ¡la información se perderá para siempre! (¡Y eso es mucho tiempo!)</h5>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<main class="container">
+	<br>
+	<br>
+	<br>
+	<br>
+	<h1 class="text-center">Nuestros productos</h1>
+	<div class="row store-row">
+		{% for product in products %}
+		<div class="col-md-3">
+			<div class="card store-card">
+				<img class="thumbnail" src="{{product.image.url}}" alt="">
+				<div class="card-body">
+					<h2 class="card-titel text-center"><strong>{{product.name}}</strong></h2>
+					<p class="card-text text-center">{{product.description}}</p>
+					<div class="price-wrapper">
+						<h4 class="price">${{product.price|floatformat:2}}</h4>
+					</div>
+					<div class="btn store-btn">
+						<button data-product={{product.id}} data-action="add" class="btn store-btn store-button btn-outline-secondary add-btn update-cart">Añadir al carrito <i class="fa-solid fa-cart-shopping fa-2xl pt-4"></i></button>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	{% endfor %}	
+    </div>
+</main>
+{% endblock %}
+
+
+
+
+

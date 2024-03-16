@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<header class="main-header">
+    <div class="imgreveal text-white py-5 bg-pet">
+      <div class="container-fluid">
+        <div class="m-5 row d-flex h-100 text-center justify-content-center align-self-center">
+            <h1 class="display-3 some">
+               PetFinder
+            </h1>
+            <h5 class="text-dark">¡La mejor forma de cuidar a tu mascota!</p>
+        </div>
+      </div>
+    </div>
+</header>
+  <main class="text-center">
+  
+    <div class="container marketing">
+  
+      <hr class="featurette-divider">
+  
+      <div class="row featurette align-items-center">
+        <div class="col-md-7">
+          <h2 class="featurette-heading fw-normal lh-1">¡La mejor forma de almacenar informacion de tu mascota <span class="text-body-secondary"> Y localizarla tambien!</span></h2>
+          <p class="lead">Registra, almacena infromación acerca de ella, utiliza su código QR para acceder en todo momento y lugar y sigue el rastro de sus pasos.</p>
+        </div>
+        <div class="col-md-5">
+          <img src="{% static 'image/home1.jpeg' %}" alt="..." class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500"role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+      </div>
+  
+      <hr class="featurette-divider">
+  
+      <div class="row featurette align-items-center">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading fw-normal lh-1">¡QR para el acceso de todos!<span class="text-body-secondary"> Escanea y comprueba</span></h2>
+          <p class="lead">A cada mascota se le asigna un código QR que debe ir en sus placas, quien lo escanee puede saber sobre ella y tú sabras desde donde fue su último escaneo.</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img src="{% static 'image/home3.jpg' %}" alt="..." class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500"role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+      </div>
+  
+      <hr class="featurette-divider">
+  
+      <div class="row featurette align-items-center">
+        <div class="col-md-7">
+          <h2 class="featurette-heading fw-normal lh-1">¡Servicio de localización! <span class="text-body-secondary">Al alcance de un escaneo</span></h2>
+          <p class="lead">Si tu mascota se extravía, cualquier persona externa que escanee el QR sabra sobre ella y tu sabras desde donde fue, determinando la ubicación de tu mascota.</p>
+        </div>
+        <div class="col-md-5">
+          <img src="{% static 'image/home2.jpeg' %}" alt="..." class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto py-5" width="500" height="500"role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+      </div>
+  
+      <hr class="featurette-divider">
+  
+    </div>
+  </main>
+
+{% endblock %}

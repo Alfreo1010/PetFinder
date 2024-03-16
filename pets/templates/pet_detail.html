@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="pt-5">
+    <main class="container py-5">
+        <div class="card card-body bg-dark rounded-5 shado">
+            <div class="border border-primary border-5 rounded-5">
+                
+                {% include 'petdtl_snippets/info.html' %}
+                
+                {% include 'petdtl_snippets/qr.html' %}
+
+
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

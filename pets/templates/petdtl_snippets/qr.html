@@ -1,0 +1,16 @@
+<div class="row justify-content-evenly">
+    <div class="col-md-6 pt-2 px-5 text-light">
+        <h3>Rasgos descriptivos:</h3><h5>{% if pet.description %}{{pet.description}}{% else %}No description{% endif %}</h5>
+        <h3>Alguna patología:</h3><h5>{% if pet.pathology %}{{pet.pathology}}{% else %}No{% endif %}</h5>
+    </div>
+    <div class="col-md-3 p-sm-5 p-md-1">
+        <div class="text-center card border border-info border-5 rounded-5 b-5">
+            <img src="{% url 'pets:pet_qrcode' pet.id %}" alt="qr" class="img-fluid rounded-5 bg-success">
+                <a href="{% url 'pets:pet_qrcode' pet.id %}" class="btn btn-info btn-lg text-white m-3">
+                    <i class="fa-solid fa-qrcode"></i> Descargar QR
+                </a>
+        </div>
+    </div>
+
+
+</div>
