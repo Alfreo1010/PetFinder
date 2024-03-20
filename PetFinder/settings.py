@@ -127,6 +127,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "staticfiles",
+    '/opt/render/project/src/staticfiles'
     '/var/www/static',
 ]
 
