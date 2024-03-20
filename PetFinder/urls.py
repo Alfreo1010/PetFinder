@@ -24,6 +24,6 @@ urlpatterns = [
     path('users/', include('usuarios.urls', namespace='usuarios')),
     path('', include('pets.urls', namespace='pets')),
     path('store/', include('store.urls', namespace= 'store')),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
